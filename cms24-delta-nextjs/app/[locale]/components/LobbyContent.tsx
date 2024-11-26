@@ -26,8 +26,8 @@ interface LobbyContentProps {
 const LobbyContent = ({ data, locale }: LobbyContentProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const roomId = searchParams.get("roomId");
-  const userId = searchParams.get("userId");
+  const roomId = searchParams.get("roomId") || "";
+  const userId = searchParams.get("userId") || "";
   const [isHost, setIsHost] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

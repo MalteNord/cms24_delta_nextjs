@@ -17,6 +17,12 @@ interface TrackInfo {
     artistIds: string[];
 }
 
+interface Player {
+    userId: string;
+    name: string;
+    host: boolean;
+}
+
 interface ScoreUpdate {
     userId: string;
     points: number;
@@ -29,7 +35,7 @@ interface PlayerScore {
 
 const Scoreboard = ({ roomId, locale, currentUserId, currentUserName }: ScoreboardProps) => {
     const [scores, setScores] = useState<Record<string, number>>({});
-    const [players, setPlayers] = useState<string[]>([]);
+    const [players, setPlayers] = useState<Player[]>([]);
     const [connecting, setConnecting] = useState(false);
     const [connection, setConnection] = useState<HubConnection | null>(null);
     const [currentTrackId, setCurrentTrackId] = useState<string | null>(null);
@@ -40,7 +46,7 @@ const Scoreboard = ({ roomId, locale, currentUserId, currentUserName }: Scoreboa
     useEffect(() => {
         const options = {
             locale,
-            onGameEnd: (endGameData: { players: string[]; scores: Record<string, number> }) => {
+            onGameEnd: (endGameData: { players: Player[]; scores: Record<string, number> }) => {
                 console.log("Game ended:", endGameData);
                 setScores(totalScores.current);
                 setAnsweredPlayers(new Set()); // Clear answered players on game end
@@ -66,7 +72,7 @@ const Scoreboard = ({ roomId, locale, currentUserId, currentUserName }: Scoreboa
                     // Add new handler for player submissions
                     newConnection.on("ReceivePlayerSubmission", (playerName: string) => {
                         console.log("Player submitted answer:", playerName);
-                        setAnsweredPlayers(prev => new Set([...prev, playerName]));
+                        setAnsweredPlayers((prev) => new Set([...prev, playerName]));
                     });
 
                     newConnection.on("OnTrackChanged", (trackInfo: TrackInfo) => {
@@ -82,7 +88,7 @@ const Scoreboard = ({ roomId, locale, currentUserId, currentUserName }: Scoreboa
                         setScores(updatedScores);
                     });
 
-                    newConnection.on("ReceivePlayers", (playerNames: string[]) => {
+                    newConnection.on("ReceivePlayers", (playerNames: Player[]) => {
                         console.log("Players received:", playerNames);
                         setPlayers(playerNames);
                     });

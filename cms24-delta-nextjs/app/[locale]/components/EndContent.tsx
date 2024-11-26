@@ -1,6 +1,11 @@
 'use client';
 
-import Scoreboard from "../components/Scoreboard";
+import Scoreboard from "./Scoreboard";
+
+interface ScoreboardProps {
+  lacle: string,
+  userId: string
+}
 
 interface Player {
   userId: string;
@@ -39,7 +44,7 @@ const EndContent = ({
       <p className="text-md text-white mb-2 px-28 text-center md:text-xl">{subHeading}</p>
 
       <div className="my-4">
-        <Scoreboard roomId={roomId} locale={locale} />
+        <Scoreboard roomId={roomId} locale={locale} currentUserId={""} currentUserName={""} />
       </div>
 
       <p className="text-lg text-white mb-6 mt-6">{subText}</p>
