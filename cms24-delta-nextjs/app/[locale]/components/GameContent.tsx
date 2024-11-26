@@ -166,7 +166,7 @@ const GameContent = ({ locale }: GameContentProps) => {
     const fetchGameData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/game`,
+          `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/game`,
           {
             method: "GET",
             cache: "no-store",

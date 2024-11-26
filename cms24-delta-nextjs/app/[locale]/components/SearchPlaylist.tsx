@@ -30,7 +30,7 @@ export default function SearchPlaylists({ locale, onSelectPlaylist }: SearchPlay
     useEffect(() => {
         async function fetchSearchText() {
             try {
-                const response = await fetch(`http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/game`);
+                const response = await fetch(`https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/game`);
                 const data = await response.json();
                 setSearchTextData({
                     searchPlaceholder: data.properties?.searchPlaceholder || '',

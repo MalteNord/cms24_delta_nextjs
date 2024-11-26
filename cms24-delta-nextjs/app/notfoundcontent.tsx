@@ -24,7 +24,7 @@ const NotFoundContent = () => {
     const fetchContent = async () => {
       try {
         const res = await fetch(
-          `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/notfound`,
+          `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/notfound`,
           {
             method: "GET",
             cache: "no-store",

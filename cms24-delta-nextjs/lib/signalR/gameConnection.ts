@@ -25,7 +25,7 @@ export const createGameConnection = async (
   setConnecting(true);
 
   newConnection = new HubConnectionBuilder()
-    .withUrl(`http://localhost:39457/gameHub?roomId=${encodeURIComponent(roomId)}`, {
+    .withUrl(`https://quizify.azurewebsites.net/gameHub?roomId=${encodeURIComponent(roomId)}`, {
       transport: HttpTransportType.WebSockets,
       withCredentials: true,
     })

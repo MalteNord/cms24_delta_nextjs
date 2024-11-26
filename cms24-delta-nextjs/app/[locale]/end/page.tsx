@@ -15,7 +15,7 @@ interface PageProps {
 const fetchEndgameData = async (locale: string) => {
   try {
     const response = await fetch(
-      `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/end`,
+      `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/end`,
       {
         method: "GET",
         credentials: "include",

@@ -1,4 +1,4 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 
 interface Params {
   locale: string;
@@ -11,7 +11,7 @@ export default async function Home({ params }: { params: Params }) {
 
   try {
     const response = await fetch(
-      `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/`,
+      `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/`,
       {
         method: "GET",
         cache: "no-store",
@@ -43,7 +43,7 @@ export default async function Home({ params }: { params: Params }) {
   const imageUrl =
     image && image.url
       ? image.url.startsWith("/")
-        ? `http://localhost:39457${image.url}`
+        ? `https://quizify.azurewebsites.net${image.url}`
         : image.url
       : null;
 

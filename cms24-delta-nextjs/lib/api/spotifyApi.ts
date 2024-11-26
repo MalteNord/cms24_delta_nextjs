@@ -5,7 +5,7 @@ import { getServerSideProps} from "next/dist/build/templates/pages";
 export async function getTrackById(trackId: string): Promise<Track | null> {
     try {
         const response = await fetch(
-            `https://localhost:44376/api/Spotify/track/${trackId}`,
+            `https://quizify.azurewebsites.net/api/Spotify/track/${trackId}`,
             { cache: "no-store" }
         );
 
@@ -24,7 +24,7 @@ export async function getTrackById(trackId: string): Promise<Track | null> {
 export async function getPlaylistById(playlistId: string): Promise<Playlist | null> {
     try {
         const response = await fetch(
-            `https://localhost:44376/api/Spotify/playlist/${playlistId}`,
+            `https://quizify.azurewebsites.net/api/Spotify/playlist/${playlistId}`,
             { cache: "no-store" }
         );
 
@@ -42,7 +42,7 @@ export async function getPlaylistById(playlistId: string): Promise<Playlist | nu
 
 
 export async function searchPlaylists(query: string) {
-    const response = await fetch(`https://localhost:44376/api/spotify/search?query=${encodeURIComponent(query)}`, {
+    const response = await fetch(`https://quizify.azurewebsites.net/api/spotify/search?query=${encodeURIComponent(query)}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export async function searchPlaylists(query: string) {
 }
 
 export async function searchUserPlaylists(userId: string) {
-    const response = await fetch(`https://localhost:44376/api/spotify/user/${userId}/playlists`, {
+    const response = await fetch(`https://quizify.azurewebsites.net/api/spotify/user/${userId}/playlists`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export async function searchUserPlaylists(userId: string) {
 
 export async function callNextTrackBackend() {
     try {
-        const response = await fetch(`https://localhost:44376/api/spotify/next`, {
+        const response = await fetch(`https://quizify.azurewebsites.net/api/spotify/next`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

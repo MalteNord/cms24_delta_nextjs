@@ -24,7 +24,7 @@ function CreateGame({ params }: { params: Params }) {
 
     async function fetchQuizData() {
       const response = await fetch(
-        `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/quiz`
+        `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/quiz`
       );
       const data = await response.json();
       setQuizData(data.properties);
@@ -45,7 +45,7 @@ function CreateGame({ params }: { params: Params }) {
     const payload = { playerName, userId, host: true };
 
     try {
-      const response = await fetch("http://localhost:39457/api/game", {
+      const response = await fetch("https://quizify.azurewebsites.net/api/game", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function CreateGame({ params }: { params: Params }) {
           {/* Text above the button */}
           <span className="mb-4 text-zinc-200 text-lg text-center">{loginButton}</span>
           <a
-              href="http://localhost:39457/api/spotify/login"
+              href="https://quizify.azurewebsites.net/api/spotify/login"
               className="flex items-center justify-center w-full max-w-xs px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg shadow-md transform transition-all duration-200"
           >
             <img

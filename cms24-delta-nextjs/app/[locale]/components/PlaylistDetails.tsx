@@ -24,7 +24,7 @@ export default function PlaylistDetails({ locale, playlistId }: PlaylistDetailsP
     useEffect(() => {
         async function fetchPlaylistDetailsText() {
             try {
-                const response = await fetch(`http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/game`);
+                const response = await fetch(`https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/game`);
                 const data = await response.json();
                 setPlaylistDetailsTextData({
                     playlistDescription: data.properties?.playlistDescription || '',

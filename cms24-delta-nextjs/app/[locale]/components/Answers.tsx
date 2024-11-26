@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import useDebounce from "@/hooks/useDebounce";
 import { useSpotifyPlayer } from "@/app/context/SpotifyPlayerContext";
 
-const API_BASE_URL = `https://localhost:44376`;
+const API_BASE_URL = `https://quizify.azurewebsites.net`;
 
 interface Params {
   locale: string;

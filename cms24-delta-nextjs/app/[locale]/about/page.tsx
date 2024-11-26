@@ -31,7 +31,7 @@ export default async function About({ params }: { params: Params }) {
 
   try {
     const response = await fetch(
-      `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/about`,
+      `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/about`,
       {
         method: "GET",
         cache: "no-store",

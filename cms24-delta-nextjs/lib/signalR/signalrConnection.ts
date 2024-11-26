@@ -19,7 +19,7 @@ export const createSignalRConnection = async (
   setConnecting(true);
 
   newConnection = new HubConnectionBuilder()
-    .withUrl(`http://localhost:39457/lobbyHub?roomId=${roomId}`, {
+    .withUrl(`https://quizify.azurewebsites.net/lobbyHub?roomId=${roomId}`, {
       transport: HttpTransportType.WebSockets,
       withCredentials: true,
     })

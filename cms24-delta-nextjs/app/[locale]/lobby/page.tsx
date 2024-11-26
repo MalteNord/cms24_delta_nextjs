@@ -6,7 +6,7 @@ interface Params {
 
 async function fetchLobbyData(locale: string) {
   const response = await fetch(
-    `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/lobby`,
+    `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/lobby`,
     {
       method: "GET",
       cache: "no-store",

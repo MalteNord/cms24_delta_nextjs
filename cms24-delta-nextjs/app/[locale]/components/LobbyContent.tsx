@@ -78,7 +78,7 @@ const LobbyContent = ({ data, locale }: LobbyContentProps) => {
     if (isHost && connection) {
       try {
         const response = await fetch(
-          `http://localhost:39457/api/game/${roomId}/start`,
+          `https://quizify.azurewebsites.net/api/game/${roomId}/start`,
           {
             method: "POST",
             headers: {

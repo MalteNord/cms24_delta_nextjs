@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 // Fetch Header Data
 async function fetchHeaderData(locale: string) {
   const response = await fetch(
-    `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/header`,
+    `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/header`,
     { cache: "no-store" }
   );
 
@@ -47,7 +47,7 @@ async function fetchHeaderData(locale: string) {
 // Fetch Footer Data
 async function fetchFooterData(locale: string) {
   const response = await fetch(
-    `http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/footer`,
+    `https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/footer`,
     { cache: "no-store" }
   );
 

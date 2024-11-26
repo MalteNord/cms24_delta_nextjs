@@ -28,7 +28,7 @@ function JoinGame({ params }: { params: Params }) {
   useEffect(() => {
     async function fetchJoinRoomData() {
       try {
-        const response = await fetch(`http://localhost:39457/umbraco/delivery/api/v2/content/item/${locale}/quiz`);
+        const response = await fetch(`https://quizify.azurewebsites.net/umbraco/delivery/api/v2/content/item/${locale}/quiz`);
         const data = await response.json();
         setJoinRoomData({
           joinRoomCode: data.properties?.joinRoomCode || '',

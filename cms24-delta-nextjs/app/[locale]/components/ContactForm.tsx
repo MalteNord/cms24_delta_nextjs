@@ -31,7 +31,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ locale }) => {
       if (!formId) return;
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:39457/api/umbracoformsapi/${formId}`, {
+        const response = await fetch(`https://quizify.azurewebsites.net/api/umbracoformsapi/${formId}`, {
           method: "GET",
           credentials: "include",
           cache: "no-store",
@@ -78,7 +78,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ locale }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:39457/api/umbracoformsapi/submitForm", {
+      const response = await fetch("https://quizify.azurewebsites.net/api/umbracoformsapi/submitForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

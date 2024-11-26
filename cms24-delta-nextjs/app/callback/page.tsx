@@ -39,7 +39,7 @@ export default function CallbackPage({
 
             try {
                 console.log("Fetching access token from backend...");
-                const response = await fetch(`https://localhost:44376/api/spotify/callback?code=${code}`, {
+                const response = await fetch(`https://quizify.azurewebsites.net/api/spotify/callback?code=${code}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

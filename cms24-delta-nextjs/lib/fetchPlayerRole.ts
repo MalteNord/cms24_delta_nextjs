@@ -7,7 +7,7 @@ export const fetchPlayerRole = async (
 ) => {
   try {
     const response = await fetch(
-      `http://localhost:39457/api/game/${roomId}/player?userId=${userId}`,
+      `https://quizify.azurewebsites.net/api/game/${roomId}/player?userId=${userId}`,
       {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
