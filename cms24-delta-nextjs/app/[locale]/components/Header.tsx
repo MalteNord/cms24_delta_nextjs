@@ -95,13 +95,15 @@ export default function Header({ headerData }: { headerData: HeaderData }) {
                   <a
                       key={index}
                       href={link.linkUrl}
-                      className="hover:text-green-mid transition-colors"
+                      className={`hover:text-green-mid transition-colors ${
+                          pathname === link.linkUrl ? "text-green-mid font-bold" : ""
+                      }`}
                       onClick={() => setIsMenuOpen(false)}
                   >
                     {link.linkText}
                   </a>
               ))}
-              {/* Language Switcher for Mobile */}
+
               {!isGamePage && (
                   <select
                       value={currentLocale}

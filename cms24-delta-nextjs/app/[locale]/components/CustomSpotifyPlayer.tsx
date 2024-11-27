@@ -9,6 +9,7 @@ import { callNextTrackBackend } from "@/lib/api/spotifyApi";
 import { BiSolidSkipNextCircle } from "react-icons/bi";
 import {FaArrowDown, FaPlayCircle} from "react-icons/fa";
 import { FaPauseCircle } from "react-icons/fa";
+import Image from "next/image";
 
 interface CustomSpotifyPlayerProps {
     playlistId: string;
@@ -63,7 +64,7 @@ export default function CustomSpotifyPlayer({
             currentTrackIndex === tracks.length - 1 &&
             !isPlaying
         ) {
-            // Last track has finished playing
+
             setPlaylistEnded(true);
             console.log('Playlist has ended.');
         }
@@ -119,11 +120,11 @@ export default function CustomSpotifyPlayer({
     return (
         <div className="w-full max-w-xs mx-auto bg-black border-green-dark border-2 rounded-lg shadow-lg p-8 flex flex-col items-center space-y-4">
             {isLoading || !isPlayerReady ? (
-                <p className="text-gray-400">Loading Spotify Player...</p>
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-mid" />
             ) : (
                 <>
                     <div className="w-32 h-32 overflow-hidden rounded-md shadow-md">
-                        <img
+                        <Image
                             src={albumCover || '/images/Quizify.PNG'}
                             alt={trackName}
                             className="w-full h-full object-cover"

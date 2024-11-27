@@ -19,7 +19,7 @@ function CreateGame({ params }: { params: Params }) {
   useEffect(() => {
 
     const accessToken = Cookies.get('spotify_access_token');
-    setIsAuthenticated(!!accessToken);
+    setIsAuthenticated(!accessToken);
 
 
     async function fetchQuizData() {
