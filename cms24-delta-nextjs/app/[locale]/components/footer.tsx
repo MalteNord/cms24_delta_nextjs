@@ -52,7 +52,7 @@ export default function Footer({ footerData }: { footerData: FooterData }) {
               {link.title}
             </a>
           ))}
-          <CookieConsentButton className="text-zinc-300">{cookieConsent}</CookieConsentButton>
+          <CookieConsentButton>{cookieConsent}</CookieConsentButton>
         </div>
       </div>
     </footer>
