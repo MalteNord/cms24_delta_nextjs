@@ -90,28 +90,20 @@ export default async function RootLayout({
 
   return (
       <html lang={locale}>
-      <head>
-        <Script strategy="beforeInteractive">
-          {`window.CookieTractorConfig = {
-          apiKey: "96cb6880-e19a-408d-b453-19eb4a798064"
-        };`}
-        </Script>
-        <Script
-            strategy="afterInteractive"
-            src="https://cdn.cookietractor.com/cookietractor.js"
-            data-lang="en-US"
-            data-id="efb69d19-94da-4040-bfe7-b7ca3717d3c9"
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-gray`}
-      >
-        <SpotifyPlayerProvider>
-          <Header headerData={headerData} />
-          {children}
-         <Footer footerData={footerData} />
-        </SpotifyPlayerProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-gray`}>
+      <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="58b647b2-3fa9-4102-9136-1ab1f33c7755"
+          data-blockingmode="auto"
+          type="text/javascript"
+      />
+      <SpotifyPlayerProvider>
+        <Header headerData={headerData} />
+        {children}
+        <Footer footerData={footerData} />
+      </SpotifyPlayerProvider>
       </body>
-    </html>
+      </html>
   );
 }

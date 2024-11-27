@@ -1,3 +1,5 @@
+import CookieConsentButton from "@/app/[locale]/components/CookieConsentButton";
+
 interface NavigationLink {
   title: string;
   url: string;
@@ -50,7 +52,7 @@ export default function Footer({ footerData }: { footerData: FooterData }) {
               {link.title}
             </a>
           ))}
-          <button className="text-zinc-300 cookie-consent-settings">{cookieConsent}</button>
+          <CookieConsentButton className="text-zinc-300">{cookieConsent}</CookieConsentButton>
         </div>
       </div>
     </footer>
