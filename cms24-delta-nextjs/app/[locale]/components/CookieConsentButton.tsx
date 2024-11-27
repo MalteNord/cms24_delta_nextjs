@@ -1,8 +1,11 @@
 'use client'
+import React, { useState, useEffect } from 'react';
 
-import { useState, useEffect } from 'react';
+interface CookieButtonProps {
+    className?: string;
+}
 
-const CookieConsentButton = () => {
+const CookieConsentButton: React.FC<CookieButtonProps> = ({ className }) => {
     const [cookieConsent, setCookieConsent] = useState('Loading...');
 
     useEffect(() => {
@@ -21,13 +24,13 @@ const CookieConsentButton = () => {
         });
 
         return () => {
-            document.body.removeChild(script);
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
         };
     }, []);
 
-    return (
-        <button className="text-zinc-300">{cookieConsent}</button>
-    );
+    return <button className={className}>{cookieConsent}</button>;
 };
 
 export default CookieConsentButton;
