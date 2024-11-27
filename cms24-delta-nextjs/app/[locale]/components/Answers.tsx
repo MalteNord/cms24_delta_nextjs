@@ -396,7 +396,7 @@ function Answer({ params, roomId, userId, currentTrack }: AnswerProps) {
 
   return (
       <div className="flex flex-col justify-center mx-auto p-4">
-        <div className="m-20 bg-stone-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-zinc-700">
+        <div className="m-8 bg-stone-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-zinc-700">
           <h1 className="text-6xl font-bold mb-4 text-center bg-gradient-to-r from-green-dark via-green-mid to-green-dark bg-clip-text text-transparent">
             {answerHeading}
           </h1>

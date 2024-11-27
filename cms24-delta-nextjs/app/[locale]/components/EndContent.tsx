@@ -37,7 +37,7 @@ const EndContent = ({
   return (
     <>
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <h1 className="text-4xl text-transparent font-bold bg-gradient-to-r from-green-dark via-green-mid to-green-dark bg-clip-text mb-4">
+      <h1 className="text-4xl mt-10 text-transparent font-bold bg-gradient-to-r from-green-dark via-green-mid to-green-dark bg-clip-text mb-4">
         {heading}
       </h1>
 
@@ -47,14 +47,14 @@ const EndContent = ({
         <Scoreboard roomId={roomId} locale={locale} currentUserId={""} currentUserName={""} />
       </div>
 
-      <p className="text-lg text-white mb-6 mt-6">{subText}</p>
+      <p className="text-center text-lg text-white mb-6 mt-6">{subText}</p>
 
       <div className="flex space-x-4">
         {links.map((link, index) => (
           <a
             key={index}
             href={link.url}
-            className="text-center bg-green-mid font-bold text-lg rounded-xl text-white my-6 p-10 py-4 hover:text-white hover:bg-green-dark transition duration-200"
+            className="flex-1 text-center bg-green-mid font-bold text-lg rounded-xl text-white my-6 p-10 py-4 hover:text-white hover:bg-green-dark transition duration-200"
             target={link.target || "_self"}
             rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
           >

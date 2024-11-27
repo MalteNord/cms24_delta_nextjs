@@ -39,7 +39,7 @@ export default async function Quiz({ params }: { params: Params }) {
     <div className="mt-24 bg-stone-900 max-w-xl mx-auto p-8 rounded-lg shadow-lg">
 
     <div className="flex justify-center">
-      <h1 className="inline-flex mt-10 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-dark via-green-mid to-green-dark">{heading}</h1>
+      <h1 className="inline-flex mt-10 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-dark via-green-mid to-green-dark">{heading}</h1>
     </div>
 
 

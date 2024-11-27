@@ -89,14 +89,19 @@ export default async function RootLayout({
   ]);
 
   return (
-    <html lang={locale}>
-    <head>
-      <Script
-          src="https://cdn.cookietractor.com/cookietractor.js"
-          data-lang="en-US"
-          data-id="efb69d19-94da-4040-bfe7-b7ca3717d3c9"
-      ></Script>
-    </head>
+      <html lang={locale}>
+      <head>
+        <Script>
+          {`window.CookieTractorConfig = {
+          apiKey: "96cb6880-e19a-408d-b453-19eb4a798064"
+        };`}
+        </Script>
+        <Script
+            src="https://cdn.cookietractor.com/cookietractor.js"
+            data-lang="en-US"
+            data-id="efb69d19-94da-4040-bfe7-b7ca3717d3c9"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-gray`}
       >
