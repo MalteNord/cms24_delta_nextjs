@@ -90,20 +90,21 @@ export default async function RootLayout({
 
   return (
       <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-gray`}>
-      <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="58b647b2-3fa9-4102-9136-1ab1f33c7755"
-          data-blockingmode="auto"
-          type="text/javascript"
-      />
-      <SpotifyPlayerProvider>
-        <Header headerData={headerData} />
-        {children}
-        <Footer footerData={footerData} />
-      </SpotifyPlayerProvider>
-      </body>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-gray`}>
+          <script
+              id="Cookiebot"
+              src="https://consent.cookiebot.com/uc.js"
+              data-cbid="58b647b2-3fa9-4102-9136-1ab1f33c7755"
+              data-blockingmode="auto"
+              type="text/javascript"
+              data-culture={locale}
+          />
+        <SpotifyPlayerProvider>
+          <Header headerData={headerData} />
+          {children}
+          <Footer footerData={footerData} />
+        </SpotifyPlayerProvider>
+        </body>
       </html>
   );
 }

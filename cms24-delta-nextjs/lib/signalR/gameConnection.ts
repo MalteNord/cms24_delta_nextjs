@@ -29,10 +29,17 @@ export const createGameConnection = async (
       transport: HttpTransportType.WebSockets,
       withCredentials: true,
     })
-    .withAutomaticReconnect([0, 2000, 10000, 30000])
-    .configureLogging(LogLevel.Debug)
-    .build();
+      .withAutomaticReconnect([0, 2000, 10000, 30000])
+      .withServerTimeout(300000)
+      .configureLogging(LogLevel.Debug)
+      .build();
 
+
+  setInterval(() => {
+    if (newConnection?.state === 'Connected') {
+      newConnection.invoke("KeepAlive").catch(console.error);
+    }
+  }, 60000);
 
   newConnection.on('ReceivePlayers', (players: Player[]) => {
     console.log('Players received:', players);

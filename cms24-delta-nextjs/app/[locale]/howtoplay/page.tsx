@@ -1,3 +1,5 @@
+import CookieDeclaration from "@/app/[locale]/components/CookieDeclaration";
+
 interface Params {
     locale: string;
 }
@@ -79,6 +81,12 @@ export default async function HowToPlay({ params }: { params: Params }) {
                         className="text-zinc-300 leading-relaxed space-y-4 [&>p]:text-zinc-300 [&>ul]:text-zinc-300 [&>ol]:text-zinc-300"
                         dangerouslySetInnerHTML={{ __html: spotifyText.markup }}
                     />
+                </div>
+                <div className="bg-stone-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-zinc-700">
+                    <h2 className="text-2xl font-semibold mb-4 text-center text-green-mid">
+                        Cookies
+                    </h2>
+                    <CookieDeclaration  locale={locale}/>
                 </div>
             </div>
         </div>
