@@ -93,15 +93,6 @@ export default async function About({ params }: { params: Params }) {
             dangerouslySetInnerHTML={{ __html: sectionText3.markup }}
           />
         </div>
-
-        {/* Form */}
-        <div className="flex align-center flex-col mt-1">
-          <h2 className="text-4xl text-zinc-200 font-bold text-center">{contact}</h2>
-          <div className="w-[600px] bg-black m-7 rounded-xl mx-auto">
-            {/* Om ContactForm är en komponent som fungerar utan client-sidan, kan den inkluderas direkt */}
-            <ContactForm locale={locale} />
-          </div>
-        </div>
       </div>
     </div>
   );
