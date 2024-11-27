@@ -28,7 +28,6 @@ export const createSignalRConnection = async (
     .build();
 
   newConnection.on('ReceivePlayers', (players: Player[]) => setPlayers(players));
-  // newConnection.on('PlayerJoined', (playerName: string) => setPlayers((prev) => [...prev, playerName]));
 
   newConnection.on("StartGame", onStartGame);
 
