@@ -61,7 +61,7 @@ const GameContent = ({ locale }: GameContentProps) => {
     }
   }, [players, userId]);
 
-  // Effect to handle track changes
+
   useEffect(() => {
     if (currentTrackId && connection && isHost) {
       const trackInfo = {
@@ -205,8 +205,12 @@ const GameContent = ({ locale }: GameContentProps) => {
     }
   };
 
-  if (!properties) return <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-mid"></div>
-  if (connecting) return <h1>Connecting to game...</h1>;
+  if (!properties) return <div className="flex justify-center items-center min-h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-mid" />
+  </div>
+  if (connecting) return <div className="flex justify-center items-center min-h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-mid" />
+  </div>
 
   const { lobbyHeading, endGameButton } = properties;
 

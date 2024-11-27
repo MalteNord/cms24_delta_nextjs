@@ -82,7 +82,7 @@ export default async function RootLayout({
 }>) {
   const locale = params.locale || "sv";
 
-  // Fetch both header and footer data
+
   const [headerData, footerData] = await Promise.all([
     fetchHeaderData(locale),
     fetchFooterData(locale),
@@ -91,12 +91,13 @@ export default async function RootLayout({
   return (
       <html lang={locale}>
       <head>
-        <Script>
+        <Script strategy="beforeInteractive">
           {`window.CookieTractorConfig = {
           apiKey: "96cb6880-e19a-408d-b453-19eb4a798064"
         };`}
         </Script>
         <Script
+            strategy="afterInteractive"
             src="https://cdn.cookietractor.com/cookietractor.js"
             data-lang="en-US"
             data-id="efb69d19-94da-4040-bfe7-b7ca3717d3c9"

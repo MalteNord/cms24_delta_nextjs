@@ -60,7 +60,9 @@ export default function PlaylistDetails({ locale, playlistId }: PlaylistDetailsP
         fetchPlaylist();
     }, [playlistId]);
 
-    if (loading) return <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-mid"></div>
+    if (loading) return <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-mid" />
+    </div>
     if (error) return <p className="text-red-500">{error}</p>;
     if (!playlist || !playlistDetailsTextData) return <p>Playlist not found or failed to load.</p>;
 
