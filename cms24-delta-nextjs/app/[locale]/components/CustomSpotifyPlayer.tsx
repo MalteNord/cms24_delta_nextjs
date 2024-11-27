@@ -72,7 +72,6 @@ export default function CustomSpotifyPlayer({
 
     const handlePlayPause = () => {
         if (playlistEnded) {
-            // Do not allow playing if the playlist has ended
             console.log('Playlist has ended. Play button is disabled.');
             return;
         }
@@ -84,7 +83,7 @@ export default function CustomSpotifyPlayer({
                 play(playlistId, currentTrackIndex !== null ? currentTrackIndex : 0);
                 setIsNewPlayback(false);
             } else {
-                play(); // Resume playback without parameters
+                play();
             }
         }
     };
@@ -124,8 +123,8 @@ export default function CustomSpotifyPlayer({
             ) : (
                 <>
                     <div className="w-32 h-32 overflow-hidden rounded-md shadow-md">
-                        <Image
-                            src={albumCover || '/images/Quizify.PNG'}
+                        <img
+                            src={albumCover}
                             alt={trackName}
                             className="w-full h-full object-cover"
                         />

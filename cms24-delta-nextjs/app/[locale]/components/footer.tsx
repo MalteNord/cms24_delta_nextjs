@@ -1,4 +1,4 @@
-import CookieConsentButton from "@/app/[locale]/components/CookieConsentButton";
+
 
 interface NavigationLink {
   title: string;
