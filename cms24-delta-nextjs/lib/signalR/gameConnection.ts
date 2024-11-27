@@ -28,6 +28,7 @@ export const createGameConnection = async (
     .withUrl(`https://quizify.azurewebsites.net/gameHub?roomId=${encodeURIComponent(roomId)}`, {
       transport: HttpTransportType.WebSockets,
       withCredentials: true,
+      skipNegotiation: true,
     })
     .withAutomaticReconnect([0, 2000, 10000, 30000])
     .configureLogging(LogLevel.Debug)
