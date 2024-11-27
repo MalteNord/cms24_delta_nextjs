@@ -20,6 +20,7 @@ export const createGameConnection = async (
   options: GameConnectionOptions
 ) => {
   let newConnection: HubConnection | undefined;
+  let lastTrackId: string | null = null;
   let hasFetchedPlayers = false;
 
   setConnecting(true);
@@ -77,9 +78,11 @@ export const createGameConnection = async (
 
   newConnection.on('OnTrackChanged', (trackInfoStr: string) => {
     try {
-
-      console.log("Client: Received track change notification.", /*trackInfoStr*/);
-
+      // Only log and handle if the track is different from the last one
+      if (trackInfoStr !== lastTrackId) {
+        console.log("Client: Received track change notification.", /*trackInfoStr*/);
+        lastTrackId = trackInfoStr;
+      }
     } catch (error) {
       console.error("Client: Error handling track change:", error);
     }
