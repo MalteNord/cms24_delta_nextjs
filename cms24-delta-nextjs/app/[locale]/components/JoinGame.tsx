@@ -59,7 +59,7 @@ function JoinGame({ params }: { params: Params }) {
         userId,
     };
 
-    const response = await fetch(`http://localhost:39457/api/game/${roomCode}`, {
+    const response = await fetch(`https://quizify.azurewebsites.net/api/game/${roomCode}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
