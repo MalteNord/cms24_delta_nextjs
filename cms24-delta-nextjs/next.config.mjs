@@ -7,7 +7,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/sv',
+        destination: '/en',
         permanent: false, // Change to true if you want a permanent redirect
       },
     ];
