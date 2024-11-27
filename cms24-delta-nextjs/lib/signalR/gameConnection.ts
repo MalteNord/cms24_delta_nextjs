@@ -42,7 +42,7 @@ export const createGameConnection = async (
 
   newConnection.on("ReceiveScores", (scores: Record<string, number>) => {
     console.log("Scores received:", scores);
-    setScores(scores); // Initialize with the received scores
+    setScores(scores);
   });
   
   
