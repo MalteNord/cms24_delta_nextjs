@@ -33,6 +33,7 @@ const GameContent = ({ locale }: GameContentProps) => {
   const [connecting, setConnecting] = useState(false);
   const [connection, setConnection] = useState<HubConnection | null>(null);
   const [properties, setProperties] = useState<any>(null);
+  const [lastTrackId, setLastTrackId] = useState<string>('');
 
   const { currentTrackId, artistIds, trackName, artistName } =
     useSpotifyPlayer();
@@ -63,35 +64,28 @@ const GameContent = ({ locale }: GameContentProps) => {
 
 
   useEffect(() => {
-    if (currentTrackId && connection && isHost) {
+    if (currentTrackId && connection && isHost && currentTrackId !== lastTrackId) {
       const trackInfo = {
         trackId: currentTrackId,
         trackName,
         artistName,
         artistIds,
       };
-
-      console.log("Host: Track changed, notifying other players...", /*trackInfo*/);
-
+  
+      console.log("Host: Track changed, notifying other players...");
+  
       connection
         .invoke("TrackChanged", roomId, JSON.stringify(trackInfo))
         .then(() => {
           console.log("Host: Track change notification sent successfully");
           setCurrentGameTrack(trackInfo);
+          setLastTrackId(currentTrackId);
         })
         .catch((err) => {
           console.error("Host: Error sending track change notification:", err);
         });
     }
-  }, [
-    currentTrackId,
-    connection,
-    roomId,
-    isHost,
-    trackName,
-    artistName,
-    artistIds,
-  ]);
+  }, [currentTrackId, connection, roomId, isHost, trackName, artistName, artistIds, lastTrackId]);
 
 
   useEffect(() => {
@@ -132,13 +126,12 @@ const GameContent = ({ locale }: GameContentProps) => {
             newConnection.on("onTrackChanged", (trackInfoStr: string) => {
               try {
                 const trackInfo = JSON.parse(trackInfoStr);
-                console.log(
-                  "Client: Received track change notification:",
-                  //trackInfo
-                );
-
-                if (!isHost) {
+                
+                // Only update if track actually changed
+                if (!isHost && trackInfo.trackId !== lastTrackId) {
+                  console.log("Client: Received track change notification:");
                   setCurrentGameTrack(trackInfo);
+                  setLastTrackId(trackInfo.trackId);
                 }
               } catch (error) {
                 console.error("Client: Error parsing track info:", error);
