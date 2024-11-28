@@ -81,7 +81,7 @@ function CreateGame({ params }: { params: Params }) {
               className="flex items-center justify-center w-full max-w-xs px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg shadow-md transform transition-all duration-200"
           >
             <img
-                src="/images/Spotify-White.png"
+                src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
                 alt="spotify-logo"
                 className="w-28 mr-2 p-1"
             />
