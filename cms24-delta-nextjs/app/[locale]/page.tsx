@@ -1,5 +1,3 @@
-
-
 interface Params {
   locale: string;
 }
@@ -98,18 +96,22 @@ export default async function Home({ params }: { params: Params }) {
             <a
               className={`text-center bg-green-mid font-bold text-xl rounded-xl text-white my-6 py-4 hover:text-white hover:bg-green-dark transition duration-200 ${simplifiedButtons[0].buttonStyle}`}
               href={simplifiedButtons[0].buttonUrl}
-              aria-label={`Navigate to ${simplifiedButtons[0].buttonText} page`}
+              aria-label={`Navigate to the ${simplifiedButtons[0].buttonText} page`}
             >
               {simplifiedButtons[0].buttonText.toUpperCase()}
             </a>
             <a
               className={`text-center bg-white font-bold text-xl rounded-xl text-green-mid my-6 py-4 hover:text-white hover:bg-green-dark transition duration-200 ${simplifiedButtons[1].buttonStyle}`}
               href={simplifiedButtons[1].buttonUrl}
-              aria-label={`Navigate to ${simplifiedButtons[1].buttonText} page`}
+              aria-label={`Navigate to the ${simplifiedButtons[1].buttonText} page`}
             >
               {simplifiedButtons[1].buttonText.toUpperCase()}
             </a>
-            <a className={`text-center bg-gradient-to-r from-green-dark via-green-mid to-green-dark font-bold text-xl rounded-xl text-white my-6 py-4 hover:text-black transition duration-200 ${simplifiedButtons[2].buttonStyle}`} href={simplifiedButtons[2].buttonUrl}>
+            <a
+              className={`text-center bg-gradient-to-r from-green-dark via-green-mid to-green-dark font-bold text-xl rounded-xl text-white my-6 py-4 hover:text-black transition duration-200 ${simplifiedButtons[2].buttonStyle}`}
+              href={simplifiedButtons[2].buttonUrl}
+              aria-label={`Navigate to the ${simplifiedButtons[2].buttonText} page`}
+            >
               {simplifiedButtons[2].buttonText.toUpperCase()}
             </a>
           </div>
