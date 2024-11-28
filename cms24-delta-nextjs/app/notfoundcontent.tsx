@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Link from 'next/link';
+import Link from "next/link";
 
 interface NotFoundData {
   properties: {
@@ -18,7 +18,13 @@ const NotFoundContent = () => {
   const [content, setContent] = useState<NotFoundData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const locale = pathname.split("/")[1] || "sv";
+  const getLocaleFromPath = () => {
+    const parts = pathname.split("/");
+    const potentialLocale = parts[1];
+    return potentialLocale === "en" || potentialLocale === "sv" ? potentialLocale : "sv"; // Default to "sv"
+  };
+
+  const locale = getLocaleFromPath();
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -55,11 +61,10 @@ const NotFoundContent = () => {
   }
 
   const { title, description, buttonText } = content!.properties;
-  
 
   return (
     <div className="flex flex-col items-center justify-center py-24 bg-stone-900 min-h-screen">
-      <h1 className="font-bold text-4xl text-white mb-4">{title}</h1>
+      <h1 className="text-8xl bg-gradient-to-r from-green-dark via-green-mid to-green-dark bg-clip-text text-transparent font-bold mb-4">{title}</h1>
       <p className="font-bold text-lg text-white mb-6 text-center">{description}</p>
       <Link href={`/${locale}`} className="px-6 py-3 bg-green-mid text-white rounded-md hover:bg-green-dark transition text-center">
         {buttonText}
@@ -69,3 +74,4 @@ const NotFoundContent = () => {
 };
 
 export default NotFoundContent;
+
