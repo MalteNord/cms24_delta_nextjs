@@ -124,7 +124,7 @@ export default function CustomSpotifyPlayer({
                 <>
                     <div className="w-32 h-32 overflow-hidden rounded-md shadow-md">
                         <img
-                            src={albumCover}
+                            src={albumCover || 'https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg'}
                             alt={trackName}
                             className="w-full h-full object-cover"
                         />
