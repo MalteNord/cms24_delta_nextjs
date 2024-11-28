@@ -78,7 +78,7 @@ function CreateGame({ params }: { params: Params }) {
           <span className="mb-4 text-zinc-200 text-lg text-center">{loginButton}</span>
           <a
               href="https://quizify.azurewebsites.net/api/spotify/login"
-              className="flex items-center justify-center w-full max-w-xs px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg shadow-md transform transition-all duration-200"
+              className="flex items-center justify-center w-full max-w-xs px-4 py-2 bg-stone-800 hover:bg-stone-600 rounded-lg shadow-md transform transition-all duration-200"
           >
             <img
                 src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
